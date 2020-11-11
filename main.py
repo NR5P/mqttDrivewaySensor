@@ -17,6 +17,8 @@ if machine.wake_reason() == machine.PIN_WAKE:  # if woke by the motion sensor an
 else:
     print("just waking up to ping")
 
+broker.disconnect()
+connection.disconnect()
 motionDetector.sleep()
     
 

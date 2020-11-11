@@ -24,3 +24,6 @@ class NetworkConnection():
 
     def isConnected(self):
         return self.wlan.isconnected()
+
+    def disconnect(self):
+        self.wlan.disconnect()
