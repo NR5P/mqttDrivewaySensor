@@ -1,4 +1,4 @@
-import network, ujson
+import network, ujson, utime
 
 class NetworkConnection():
     def __init__(self):
@@ -10,8 +10,10 @@ class NetworkConnection():
             print('connecting to network...')
             essid, password = self._getWifiCreds()
             self.wlan.connect(essid, password)
+            connStartTime = utime.time()
             while not self.wlan.isconnected():
-                pass
+                if connStartTime - utime.time() > 10:
+                    return
         print('network config:', self.wlan.ifconfig())
 
     def _getWifiCreds(self):
