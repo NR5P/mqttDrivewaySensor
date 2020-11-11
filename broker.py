@@ -4,7 +4,8 @@ import machine, time, ujson
 class Broker():
     def __init__(self):
         self.ip, self.client_id, self.topic, self.msg = self.getJsonInfo()
-        self.client = MQTTClient(self.client_id, self.ip)
+        self.client = MQTTClient(self.client_id, self.ip, keepalive=3600*2)
+        self.client.set_last_will(MQTT_STATUS_TOPIC, 'disconnected', retain=True)
         time.sleep(3)
         self.client.connect()
 

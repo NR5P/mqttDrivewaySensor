@@ -1,4 +1,4 @@
-import time
+import time, machine
 from networkConnection import NetworkConnection
 from motionDetector import MotionDetector
 from broker import Broker
@@ -11,7 +11,9 @@ if connection.do_connect() == -1: # if there was an error connecting
 print("is connected: " + str(connection.isConnected()))
 motionDetector = MotionDetector(DETECTOR_PIN)
 broker = Broker()
-broker.objectDetected()
+
+if machine.wake_reason() == machine.PIN_WAKE:  # if woke by the motion sensor and not keep alive rtc timer
+    broker.objectDetected()
 
 motionDetector.sleep()
     

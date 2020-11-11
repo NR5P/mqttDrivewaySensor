@@ -12,5 +12,5 @@ class MotionDetector():
 
     def sleep(self):
         esp32.wake_on_ext0(pin = self.pin, level = esp32.WAKEUP_ANY_HIGH)
-        machine.deepsleep()
+        machine.deepsleep(3600000)
 
