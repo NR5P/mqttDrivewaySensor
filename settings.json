@@ -1,0 +1,8 @@
+{
+    "ssid":"bugsquashed",
+    "password":"cooltomato001",
+    "brokerIp":"10.74.92.147",
+    "clientId":"driveway_sensor",
+    "topic":"outside/driveway_sensor",
+    "msg":"true"
+}
