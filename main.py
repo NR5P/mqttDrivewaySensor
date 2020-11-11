@@ -10,12 +10,8 @@ connection.do_connect()
 print("is connected: " + str(connection.isConnected()))
 motionDetector = MotionDetector(DETECTOR_PIN)
 broker = Broker()
+broker.objectDetected()
 
-while True:
-    time.sleep(1)
-    if not connection.isConnected():
-        connection.do_connect()
-    if motionDetector.check() == True:
-        broker.objectDetected()
+motionDetector.sleep()
     
 
