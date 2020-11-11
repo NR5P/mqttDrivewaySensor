@@ -13,6 +13,7 @@ class NetworkConnection():
             connStartTime = utime.time()
             while not self.wlan.isconnected():
                 if connStartTime - utime.time() > 10:
+                    print("no wifi detected going back to sleep")
                     return
         print('network config:', self.wlan.ifconfig())
 

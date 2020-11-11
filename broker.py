@@ -10,6 +10,7 @@ class Broker():
         self.client.connect()
 
     def objectDetected(self):
+        print("object detected, publishing")
         self.client.publish(self.topic, self.msg)
 
     def getJsonInfo(self):

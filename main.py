@@ -14,6 +14,8 @@ broker = Broker()
 
 if machine.wake_reason() == machine.PIN_WAKE:  # if woke by the motion sensor and not keep alive rtc timer
     broker.objectDetected()
+else:
+    print("just waking up to ping")
 
 motionDetector.sleep()
     
