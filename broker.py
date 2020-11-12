@@ -5,8 +5,8 @@ class Broker():
     def __init__(self):
         self.ip, self.client_id, self.topic, self.msg = self.getJsonInfo()
         self.client = MQTTClient(self.client_id, self.ip, keepalive=3600*2)
-        self.client.set_last_will(self.topic, 'disconnected', retain=True)
-        self.client.connect(clean_session=False)
+        self.client.set_last_will(self.topic, 'disconnected', retain=False)
+        self.client.connect()
 
     def objectDetected(self):
         print("object detected, publishing")
