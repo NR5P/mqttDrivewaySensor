@@ -19,6 +19,7 @@ else:
 
 broker.disconnect()
 connection.disconnect()
+print("going back to sleep")
 motionDetector.sleep()
     
 

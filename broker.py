@@ -4,10 +4,9 @@ import machine, time, ujson
 class Broker():
     def __init__(self):
         self.ip, self.client_id, self.topic, self.msg = self.getJsonInfo()
-        self.client = MQTTClient(self.client_id, self.ip, keepalive=3600*2, clean_session=False)
+        self.client = MQTTClient(self.client_id, self.ip, keepalive=3600*2)
         self.client.set_last_will(self.topic, 'disconnected', retain=True)
-        time.sleep(3)
-        self.client.connect()
+        self.client.connect(clean_session=False)
 
     def objectDetected(self):
         print("object detected, publishing")

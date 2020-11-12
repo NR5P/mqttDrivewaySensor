@@ -1,9 +1,9 @@
 import micropython, esp32
-from machine import Pin
+import machine
 
 class MotionDetector():
     def __init__(self, pinNum):
-        self.pin = Pin(pinNum, Pin.IN)
+        self.pin = machine.Pin(pinNum, machine.Pin.IN)
 
     def check(self):
         if self.pin.value() == 1:
